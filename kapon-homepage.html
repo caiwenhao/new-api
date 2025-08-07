@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapon - 真源直连，智启未来</title>
+    <meta name="description" content="Kapon专注提供原生大模型API服务，直连官方源头，零掺杂零妥协，为企业构建可信赖的AI基础设施">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #F3F4F6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563EB;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #6B7280;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2563EB;
+        }
+        
+        .cta-button {
+            background: #2563EB;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #6B7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: #2563EB;
+            border: 2px solid #2563EB;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background: #2563EB;
+            color: white;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: #FFFFFF;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1F2937;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #EBF4FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+        
+        .feature-card p {
+            color: #6B7280;
+            line-height: 1.6;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: #F8FAFC;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: #6B7280;
+            font-weight: 500;
+        }
+        
+        /* Models Section */
+        .models {
+            padding: 4rem 0;
+            background: #F8FAFC;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .model-card {
+            background: #FFFFFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-logo {
+            width: 48px;
+            height: 48px;
+            background: #EBF4FF;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563EB;
+        }
+
+        .model-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1F2937;
+        }
+
+        .model-card p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .model-status {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 0;
+            background: #FFFFFF;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: #FFFFFF;
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: #2563EB;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2563EB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2563EB;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #6B7280;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #10B981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 4rem 0;
+            background: #F8FAFC;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563EB;
+            transition: all 0.3s;
+        }
+
+        .use-case-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .use-case-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .use-case-card p {
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .use-case-tag {
+            background: #EBF4FF;
+            color: #2563EB;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+
+
+        /* Integration Section */
+        .integration {
+            padding: 4rem 0;
+            background: #FFFFFF;
+        }
+
+        .integration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .integration-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #2563EB;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .integration-step h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .integration-step p {
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        .code-container {
+            background: #0F172A;
+            border-radius: 16px;
+            padding: 0;
+            margin-top: 3rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #1E293B;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red { background: #EF4444; }
+        .code-dot.yellow { background: #F59E0B; }
+        .code-dot.green { background: #10B981; }
+
+        .code-title {
+            color: #CBD5E1;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 1rem;
+        }
+
+        .code-content {
+            padding: 2rem;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #E2E8F0;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-comment {
+            color: #64748B;
+            font-style: italic;
+        }
+
+        .code-keyword {
+            color: #F472B6;
+            font-weight: 600;
+        }
+
+        .code-string {
+            color: #34D399;
+        }
+
+        .code-function {
+            color: #60A5FA;
+        }
+
+        .code-variable {
+            color: #A78BFA;
+        }
+
+        .code-highlight {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3B82F6;
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #374151;
+            color: #D1D5DB;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .copy-button:hover {
+            background: #4B5563;
+            color: #F9FAFB;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: #1F2937;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .wechat-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .wechat-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .wechat-id {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #9CA3AF;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav">
+                <div class="logo">Kapon</div>
+                <ul class="nav-links">
+                    <li><a href="#features">功能特色</a></li>
+                    <li><a href="#models">支持模型</a></li>
+                    <li><a href="#pricing">价格方案</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <a href="#contact" class="cta-button">免费试用</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>真源直连，智启未来</h1>
+            <p>原生大模型，零掺杂承诺，为企业构建可信赖的AI基础设施</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">立即体验</a>
+                <a href="#features" class="secondary-button">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Kapon 核心价值</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>原生品质</h3>
+                    <p>直连官方源头，零中间环节，确保每一次调用都是原汁原味的模型体验</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>极致稳定</h3>
+                    <p>99.9%可用性承诺，企业级基础设施，让AI成为您最可靠的业务伙伴</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>智慧定价</h3>
+                    <p>官方渠道优势定价，让先进AI技术触手可及，释放企业创新潜能</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>无缝集成</h3>
+                    <p>完全兼容OpenAI标准，一行代码完成切换，让迁移变得优雅简单</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>极速体验</h3>
+                    <p>全球智能路由，毫秒级响应，为您的应用注入闪电般的AI动力</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>隐私至上</h3>
+                    <p>零存储策略，端到端加密，您的数据安全是我们不可妥协的底线</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>服务可用性</p>
+                </div>
+                <div class="stat-item">
+                    <h3>&lt;100ms</h3>
+                    <p>平均响应时间</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>官方API真实性</p>
+                </div>
+                <div class="stat-item">
+                    <h3>7x24</h3>
+                    <p>技术支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="models">
+        <div class="container">
+            <h2 class="section-title">AI模型生态</h2>
+            <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+                汇聚全球顶尖AI模型，为您的创新提供无限可能
+            </p>
+            <div class="models-grid">
+                <div class="model-card">
+                    <div class="model-logo">GPT</div>
+                    <h3>GPT-4 / GPT-3.5</h3>
+                    <p>OpenAI旗舰模型，引领智能对话与创作的新纪元</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+                <div class="model-card">
+                    <div class="model-logo">Claude</div>
+                    <h3>Claude 3.5 Sonnet</h3>
+                    <p>Anthropic匠心之作，长文本推理的智慧典范</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+                <div class="model-card">
+                    <div class="model-logo">💎</div>
+                    <h3>Gemini Pro</h3>
+                    <p>Google多模态革新，文本与视觉的完美融合</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+                <div class="model-card">
+                    <div class="model-logo">🎨</div>
+                    <h3>DALL-E 3</h3>
+                    <p>OpenAI视觉创造力，将想象转化为艺术现实</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+                <div class="model-card">
+                    <div class="model-logo">🧠</div>
+                    <h3>文心一言</h3>
+                    <p>百度中文智慧，深谙东方文化的AI思维</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+                <div class="model-card">
+                    <div class="model-logo">⚡</div>
+                    <h3>通义千问</h3>
+                    <p>阿里云智能引擎，多轮对话的流畅体验</p>
+                    <span class="model-status">原生接入</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">智慧定价体系</h2>
+            <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+                让先进AI技术触手可及，为企业创新赋能
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>灵动版</h3>
+                    <div class="price">按需计费</div>
+                    <ul class="pricing-features">
+                        <li>全模型生态接入</li>
+                        <li>官方渠道优惠定价</li>
+                        <li>零门槛弹性计费</li>
+                        <li>全天候技术护航</li>
+                        <li>99.9%可用性承诺</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: block; text-align: center; margin-top: 1rem;">立即启用</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">企业首选</div>
+                    <h3>专享版</h3>
+                    <div class="price">定制方案</div>
+                    <ul class="pricing-features">
+                        <li>灵动版全部权益</li>
+                        <li>深度定价优化</li>
+                        <li>专属技术团队</li>
+                        <li>SLA服务保障</li>
+                        <li>定制化集成方案</li>
+                        <li>优先级技术支持</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: block; text-align: center; margin-top: 1rem;">专属咨询</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>探索版</h3>
+                    <div class="price">免费体验</div>
+                    <ul class="pricing-features">
+                        <li>慷慨试用额度</li>
+                        <li>全模型生态体验</li>
+                        <li>完整功能验证</li>
+                        <li>专业技术指导</li>
+                        <li>即刻开通使用</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: block; text-align: center; margin-top: 1rem;">开启探索</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <h2 class="section-title">创新应用场景</h2>
+            <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+                释放AI潜能，重塑行业边界，开启智能化转型新篇章
+            </p>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>🤖 智慧客服</h3>
+                    <p>打造全天候智能服务体验，深度理解用户意图，提供精准解答，让每一次互动都成为品牌价值的延伸。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">智能交互</span>
+                        <span class="use-case-tag">品牌价值</span>
+                        <span class="use-case-tag">全时服务</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <h3>📝 创意引擎</h3>
+                    <p>释放创作潜能，从营销文案到品牌故事，AI助力内容创作达到新高度，让每个字都充满感染力。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">创意营销</span>
+                        <span class="use-case-tag">品牌故事</span>
+                        <span class="use-case-tag">内容创新</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <h3>🔍 智识中枢</h3>
+                    <p>构建企业智慧大脑，让知识流动起来，将分散的信息转化为决策智慧，赋能团队协作新境界。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">知识图谱</span>
+                        <span class="use-case-tag">智慧决策</span>
+                        <span class="use-case-tag">协作赋能</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <h3>🎓 智学伙伴</h3>
+                    <p>重新定义学习体验，个性化教学路径，智能学习陪伴，让每个学习者都能找到属于自己的成长轨迹。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">个性教育</span>
+                        <span class="use-case-tag">智能陪伴</span>
+                        <span class="use-case-tag">成长轨迹</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <h3>📊 洞察先知</h3>
+                    <p>透视数据背后的商业密码，将复杂信息转化为清晰洞察，让数据成为企业前进的明灯。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">商业洞察</span>
+                        <span class="use-case-tag">数据智慧</span>
+                        <span class="use-case-tag">战略指引</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <h3>🛒 智商助手</h3>
+                    <p>重塑购物体验，精准理解用户需求，智能推荐与个性化服务，让每次购买都成为愉悦的发现之旅。</p>
+                    <div class="use-case-tags">
+                        <span class="use-case-tag">智能零售</span>
+                        <span class="use-case-tag">个性体验</span>
+                        <span class="use-case-tag">购物愉悦</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Integration Section -->
+    <section class="integration">
+        <div class="container">
+            <h2 class="section-title">优雅集成体验</h2>
+            <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+                完美兼容OpenAI标准，一行代码完成切换，让迁移变得优雅简单
+            </p>
+            <div class="integration-steps">
+                <div class="integration-step">
+                    <div class="step-number">1</div>
+                    <h3>获取专属密钥</h3>
+                    <p>联系我们获取专属API密钥，开启您的AI创新之旅</p>
+                </div>
+                <div class="integration-step">
+                    <div class="step-number">2</div>
+                    <h3>优雅切换</h3>
+                    <p>一行代码完成迁移，保持现有架构完整性</p>
+                </div>
+                <div class="integration-step">
+                    <div class="step-number">3</div>
+                    <h3>释放潜能</h3>
+                    <p>立即体验原生AI能力，专业团队全程护航</p>
+                </div>
+            </div>
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot red"></div>
+                        <div class="code-dot yellow"></div>
+                        <div class="code-dot green"></div>
+                    </div>
+                    <div class="code-title">integration_example.py</div>
+                    <button class="copy-button" onclick="copyCode()">复制代码</button>
+                </div>
+                <div class="code-content">
+<span class="code-line"><span class="code-comment"># 原有OpenAI代码</span></span>
+<span class="code-line"><span class="code-keyword">import</span> <span class="code-variable">openai</span></span>
+<span class="code-line"><span class="code-variable">openai</span>.<span class="code-function">api_key</span> = <span class="code-string">"your-api-key"</span></span>
+<span class="code-line"><span class="code-variable">openai</span>.<span class="code-function">api_base</span> = <span class="code-string">"https://api.openai.com/v1"</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># 切换到Kapon（仅需修改一行）</span></span>
+<span class="code-line"><span class="code-keyword">import</span> <span class="code-variable">openai</span></span>
+<span class="code-line"><span class="code-variable">openai</span>.<span class="code-function">api_key</span> = <span class="code-string">"your-kapon-api-key"</span></span>
+<span class="code-line code-highlight"><span class="code-variable">openai</span>.<span class="code-function">api_base</span> = <span class="code-string">"https://api.kapon.ai/v1"</span>  <span class="code-comment"># 仅此一行需要修改</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># 其他代码完全不变</span></span>
+<span class="code-line"><span class="code-variable">response</span> = <span class="code-variable">openai</span>.<span class="code-function">ChatCompletion</span>.<span class="code-function">create</span>(</span>
+<span class="code-line">    <span class="code-function">model</span>=<span class="code-string">"gpt-4"</span>,</span>
+<span class="code-line">    <span class="code-function">messages</span>=[{<span class="code-string">"role"</span>: <span class="code-string">"user"</span>, <span class="code-string">"content"</span>: <span class="code-string">"Hello!"</span>}]</span>
+<span class="code-line">)</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># 释放原生AI潜能，开启智能创新之旅 🚀</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>开启AI创新之旅</h2>
+            <p>与Kapon携手，让原生AI能力成为您企业创新的强大引擎</p>
+            <div class="wechat-info">
+                <h3>专属咨询</h3>
+                <div class="wechat-id">kapon-api</div>
+                <p>添加微信，开启您的AI探索之旅</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Kapon. 真源直连，智启未来</p>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 监听主题模式变化（适配 new-api 的主题系统）
+        window.addEventListener('message', function(event) {
+            if (event.data.themeMode) {
+                // 可以根据主题模式调整样式
+                if (event.data.themeMode === 'dark') {
+                    document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+                }
+            }
+        });
+
+        // 复制代码功能
+        function copyCode() {
+            const codeContent = document.querySelector('.code-content').textContent;
+            navigator.clipboard.writeText(codeContent).then(function() {
+                const button = document.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = '已复制!';
+                button.style.background = '#10B981';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#374151';
+                }, 2000);
+            }).catch(function() {
+                alert('复制失败，请手动复制代码');
+            });
+        }
+
+        // 添加页面加载动画
+        window.addEventListener('load', function() {
+            // 为卡片添加渐入动画
+            const cards = document.querySelectorAll('.feature-card, .model-card, .pricing-card, .use-case-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // 滚动时的视差效果
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -80,7 +80,7 @@ main() {
     # 检查必需的命令
     log_info "检查必需的工具..."
     check_command "docker" || exit 1
-    check_command "docker-compose" || exit 1
+    check_command "docker compose" || exit 1
     check_command "go" || exit 1
     check_command "node" || exit 1
     check_command "npm" || exit 1
@@ -125,7 +125,7 @@ main() {
 
     # 启动数据库和缓存服务
     log_info "启动数据库和缓存服务..."
-    docker-compose -f docker-compose.dev.yml up -d mysql redis
+    docker compose -f docker-compose.dev.yml up -d mysql redis
 
     # 等待服务启动
     wait_for_service "localhost" "3306" "MySQL" || exit 1
@@ -174,10 +174,10 @@ main() {
     echo "     Redis Commander: http://localhost:8081 (可选)"
     echo
     echo "  4. 启动管理工具 (可选):"
-    echo "     docker-compose -f docker-compose.dev.yml --profile tools up -d"
+    echo "     docker compose -f docker-compose.dev.yml --profile tools up -d"
     echo
     echo "  5. 停止服务:"
-    echo "     docker-compose -f docker-compose.dev.yml down"
+    echo "     docker compose -f docker-compose.dev.yml down"
     echo
     log_info "开发愉快！"
 }

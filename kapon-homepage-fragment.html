@@ -1,0 +1,876 @@
+<style>
+/* 使用new-api的原生样式变量和设计规范 */
+.homepage-container {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--semi-color-text-0, #1F2937);
+    background: var(--semi-color-bg-0, #FFFFFF);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+
+
+.cta-button {
+    background: var(--semi-color-primary, #2563EB);
+    color: var(--semi-color-white, #FFFFFF);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background: var(--semi-color-primary-hover, #1D4ED8);
+    transform: translateY(-1px);
+    color: var(--semi-color-white, #FFFFFF);
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #2563EB, #1E40AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #6B7280;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--semi-color-primary, #2563EB);
+    border: 2px solid var(--semi-color-primary, #2563EB);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.secondary-button:hover {
+    background: var(--semi-color-primary, #2563EB);
+    color: var(--semi-color-white, #FFFFFF);
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-0, #FFFFFF);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--semi-color-bg-1, #FFFFFF);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--semi-shadow-elevated, 0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--semi-color-primary-light-default, #EBF4FF);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+.feature-card p {
+    color: var(--semi-color-text-1, #6B7280);
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--semi-color-text-0, #1F2937) 0%, var(--semi-color-text-1, #374151) 100%);
+    color: var(--semi-color-white, #FFFFFF);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></linearGradient></defs><polygon points="0,0 1000,200 1000,1000 0,800" fill="url(%23grad)"/></svg>') no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--semi-color-white, #FFFFFF), var(--semi-color-primary-light-default, #EBF4FF));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact p {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--semi-color-primary, #2563EB);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--semi-color-primary, #2563EB), var(--semi-color-success, #10B981));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--semi-color-white, #FFFFFF);
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--semi-color-success, #10B981);
+    margin-bottom: 0.5rem;
+}
+
+.contact-desc {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    background: #111827;
+    color: #9CA3AF;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Stats Section */
+.stats {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-1, #F8FAFC);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--semi-color-success, #10B981);
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    color: var(--semi-color-text-1, #6B7280);
+    font-weight: 500;
+}
+
+/* Models Section */
+.models {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-0, #FFFFFF);
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.model-card {
+    background: var(--semi-color-bg-1, #FFFFFF);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.model-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--semi-shadow-elevated, 0 8px 20px rgba(0, 0, 0, 0.1));
+}
+
+.model-logo {
+    width: 48px;
+    height: 48px;
+    background: var(--semi-color-primary-light-default, #EBF4FF);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--semi-color-primary, #2563EB);
+}
+
+.model-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1F2937;
+}
+
+.model-card p {
+    color: #6B7280;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.model-status {
+    display: inline-block;
+    background: #10B981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+
+
+/* Use Cases Section */
+.use-cases {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.use-cases::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/><circle cx="700" cy="800" r="80" fill="url(%23a)"/></svg>') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.use-case-card {
+    background: var(--semi-color-bg-1, #FFFFFF);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.use-case-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--semi-color-primary, #2563EB), var(--semi-color-success, #10B981));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.use-case-card:hover::before {
+    transform: scaleX(1);
+}
+
+.use-case-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--semi-color-primary, #2563EB);
+}
+
+.use-case-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--semi-color-primary, #2563EB), var(--semi-color-primary-hover, #1D4ED8));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.use-case-card:hover .use-case-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+.use-case-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--semi-color-text-0, #1F2937);
+    text-align: center;
+    background: linear-gradient(135deg, var(--semi-color-text-0, #1F2937), var(--semi-color-text-1, #6B7280));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.use-case-card p {
+    color: var(--semi-color-text-1, #6B7280);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.use-case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.use-case-tag {
+    background: linear-gradient(135deg, var(--semi-color-primary-light-default, #EBF4FF), var(--semi-color-primary-light-hover, #DBEAFE));
+    color: var(--semi-color-primary, #2563EB);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--semi-color-primary-light-active, #BFDBFE);
+    transition: all 0.3s ease;
+}
+
+.use-case-tag:hover {
+    background: var(--semi-color-primary, #2563EB);
+    color: var(--semi-color-white, #FFFFFF);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .models-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 暗色主题适配 */
+.homepage-container[theme-mode="dark"] {
+    color: var(--semi-color-text-0);
+    background: var(--semi-color-bg-0);
+}
+
+.homepage-container[theme-mode="dark"] .hero {
+    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
+}
+
+.homepage-container[theme-mode="dark"] .section-title {
+    color: var(--semi-color-text-0);
+}
+
+.homepage-container[theme-mode="dark"] .feature-card,
+.homepage-container[theme-mode="dark"] .model-card,
+.homepage-container[theme-mode="dark"] .use-case-card,
+.homepage-container[theme-mode="dark"] .contact-card {
+    background: var(--semi-color-bg-1);
+    border-color: var(--semi-color-border);
+}
+
+.homepage-container[theme-mode="dark"] .stats {
+    background: var(--semi-color-bg-1);
+}
+
+.homepage-container[theme-mode="dark"] .models {
+    background: var(--semi-color-bg-0);
+}
+
+.homepage-container[theme-mode="dark"] .use-cases {
+    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
+}
+</style>
+
+<div class="homepage-container">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>真源直连，智启未来</h1>
+        <p>原生大模型，零掺杂承诺，为企业构建可信赖的AI基础设施</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="cta-button">立即体验</a>
+            <a href="#features" class="secondary-button">了解更多</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <h2 class="section-title">Kapon 核心价值</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>原生品质</h3>
+                <p>直连官方源头，零中间环节，确保每一次调用都是原汁原味的模型体验</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>极致稳定</h3>
+                <p>99.9%可用性承诺，企业级基础设施，让AI成为您最可靠的业务伙伴</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>智慧定价</h3>
+                <p>官方渠道优势定价，让先进AI技术触手可及，释放企业创新潜能</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>无缝集成</h3>
+                <p>完全兼容OpenAI标准，一行代码完成切换，让迁移变得优雅简单</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>极速体验</h3>
+                <p>全球智能路由，毫秒级响应，为您的应用注入闪电般的AI动力</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>隐私至上</h3>
+                <p>零存储策略，端到端加密，您的数据安全是我们不可妥协的底线</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>99.9%</h3>
+                <p>服务可用性</p>
+            </div>
+            <div class="stat-item">
+                <h3>&lt;100ms</h3>
+                <p>平均响应时间</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>官方API真实性</p>
+            </div>
+            <div class="stat-item">
+                <h3>7x24</h3>
+                <p>技术支持</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Models Section -->
+<section id="models" class="models">
+    <div class="container">
+        <h2 class="section-title">AI模型生态</h2>
+        <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+            汇聚全球顶尖AI模型，为您的创新提供无限可能
+        </p>
+        <div class="models-grid">
+            <div class="model-card">
+                <div class="model-logo">GPT</div>
+                <h3>GPT-4 / GPT-3.5</h3>
+                <p>OpenAI旗舰模型，引领智能对话与创作的新纪元</p>
+                <span class="model-status">原生接入</span>
+            </div>
+            <div class="model-card">
+                <div class="model-logo">Claude</div>
+                <h3>Claude 3.5 Sonnet</h3>
+                <p>Anthropic匠心之作，长文本推理的智慧典范</p>
+                <span class="model-status">原生接入</span>
+            </div>
+            <div class="model-card">
+                <div class="model-logo">💎</div>
+                <h3>Gemini Pro</h3>
+                <p>Google多模态革新，文本与视觉的完美融合</p>
+                <span class="model-status">原生接入</span>
+            </div>
+            <div class="model-card">
+                <div class="model-logo">🎨</div>
+                <h3>DALL-E 3</h3>
+                <p>OpenAI视觉创造力，将想象转化为艺术现实</p>
+                <span class="model-status">原生接入</span>
+            </div>
+            <div class="model-card">
+                <div class="model-logo">🧠</div>
+                <h3>文心一言</h3>
+                <p>百度中文智慧，深谙东方文化的AI思维</p>
+                <span class="model-status">原生接入</span>
+            </div>
+            <div class="model-card">
+                <div class="model-logo">⚡</div>
+                <h3>通义千问</h3>
+                <p>阿里云智能引擎，多轮对话的流畅体验</p>
+                <span class="model-status">原生接入</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Use Cases Section -->
+<section class="use-cases">
+    <div class="container">
+        <h2 class="section-title">创新应用场景</h2>
+        <p style="text-align: center; color: #6B7280; font-size: 1.1rem; margin-bottom: 2rem;">
+            释放AI潜能，重塑行业边界，开启智能化转型新篇章
+        </p>
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <div class="use-case-icon">🤖</div>
+                <h3>智慧客服</h3>
+                <p>打造全天候智能服务体验，深度理解用户意图，提供精准解答，让每一次互动都成为品牌价值的延伸。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">智能交互</span>
+                    <span class="use-case-tag">品牌价值</span>
+                    <span class="use-case-tag">全时服务</span>
+                </div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon">✨</div>
+                <h3>创意引擎</h3>
+                <p>释放创作潜能，从营销文案到品牌故事，AI助力内容创作达到新高度，让每个字都充满感染力。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">创意营销</span>
+                    <span class="use-case-tag">品牌故事</span>
+                    <span class="use-case-tag">内容创新</span>
+                </div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon">🧠</div>
+                <h3>智识中枢</h3>
+                <p>构建企业智慧大脑，让知识流动起来，将分散的信息转化为决策智慧，赋能团队协作新境界。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">知识图谱</span>
+                    <span class="use-case-tag">智慧决策</span>
+                    <span class="use-case-tag">协作赋能</span>
+                </div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon">🎓</div>
+                <h3>智学伙伴</h3>
+                <p>重新定义学习体验，个性化教学路径，智能学习陪伴，让每个学习者都能找到属于自己的成长轨迹。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">个性教育</span>
+                    <span class="use-case-tag">智能陪伴</span>
+                    <span class="use-case-tag">成长轨迹</span>
+                </div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon">📊</div>
+                <h3>洞察先知</h3>
+                <p>透视数据背后的商业密码，将复杂信息转化为清晰洞察，让数据成为企业前进的明灯。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">商业洞察</span>
+                    <span class="use-case-tag">数据智慧</span>
+                    <span class="use-case-tag">战略指引</span>
+                </div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon">🚀</div>
+                <h3>智商助手</h3>
+                <p>重塑购物体验，精准理解用户需求，智能推荐与个性化服务，让每次购买都成为愉悦的发现之旅。</p>
+                <div class="use-case-tags">
+                    <span class="use-case-tag">智能零售</span>
+                    <span class="use-case-tag">个性体验</span>
+                    <span class="use-case-tag">购物愉悦</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="contact-content">
+            <h2>开启AI创新之旅</h2>
+            <p>与Kapon携手，让原生AI能力成为您企业创新的强大引擎</p>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>微信咨询</h3>
+                    <div class="contact-info">kapon-api</div>
+                    <div class="contact-desc">添加微信，获取专属技术支持和免费试用额度</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Telegram</h3>
+                    <div class="contact-info">@kapon_support</div>
+                    <div class="contact-desc">加入Telegram群组，与开发者社区实时交流</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>邮箱联系</h3>
+                    <div class="contact-info">support@kapon.ai</div>
+                    <div class="contact-desc">发送邮件获取企业级定制方案和技术咨询</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Kapon. 真源直连，智启未来</p>
+    </div>
+</footer>
+</div>
+
+<script>
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// 监听主题模式变化（适配 new-api 的主题系统）
+function initTheme() {
+    // 检查当前主题模式
+    const isDark = document.body.getAttribute('theme-mode') === 'dark' ||
+                   localStorage.getItem('theme-mode') === 'dark';
+
+    const homepageContainer = document.querySelector('.homepage-container');
+    if (homepageContainer) {
+        if (isDark) {
+            homepageContainer.setAttribute('theme-mode', 'dark');
+        } else {
+            homepageContainer.removeAttribute('theme-mode');
+        }
+    }
+}
+
+// 监听主题变化
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'theme-mode') {
+            initTheme();
+        }
+    });
+});
+
+// 开始观察body的属性变化
+observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['theme-mode']
+});
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化主题
+    initTheme();
+
+    // 添加页面加载动画
+    const cards = document.querySelectorAll('.feature-card, .model-card, .pricing-card, .use-case-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+
+// 滚动时的视差效果
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.hero');
+    if (parallax) {
+        const speed = scrolled * 0.5;
+        parallax.style.transform = `translateY(${speed}px)`;
+    }
+});
+</script>
