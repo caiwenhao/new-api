@@ -1,0 +1,447 @@
+<style>
+/* 使用new-api的原生样式变量和设计规范 */
+.homepage-container {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--semi-color-text-0, #1F2937);
+    background: var(--semi-color-bg-0, #FFFFFF);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.cta-button {
+    background: var(--semi-color-primary, #2563EB);
+    color: var(--semi-color-white, #FFFFFF);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background: var(--semi-color-primary-hover, #1D4ED8);
+    transform: translateY(-1px);
+    color: var(--semi-color-white, #FFFFFF);
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #2563EB, #1E40AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #6B7280;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+/* About Section */
+.about {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-0, #FFFFFF);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    color: var(--semi-color-text-1, #6B7280);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Mission Section */
+.mission {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-1, #F8FAFC);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.mission-card {
+    background: var(--semi-color-bg-0, #FFFFFF);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mission-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--semi-color-primary, #2563EB), var(--semi-color-success, #10B981));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.mission-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+.mission-card p {
+    color: var(--semi-color-text-1, #6B7280);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Team Section */
+.team {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-0, #FFFFFF);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-card {
+    background: var(--semi-color-bg-1, #FFFFFF);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--semi-shadow-elevated, 0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+.team-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--semi-color-primary, #2563EB), var(--semi-color-primary-hover, #1D4ED8));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+.team-role {
+    color: var(--semi-color-primary, #2563EB);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.team-card p {
+    color: var(--semi-color-text-1, #6B7280);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Values Section */
+.values {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--semi-color-text-0, #1F2937) 0%, var(--semi-color-text-1, #374151) 100%);
+    color: var(--semi-color-white, #FFFFFF);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.value-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.value-item p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: #111827;
+    color: #9CA3AF;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .mission-grid,
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 暗色主题适配 */
+.homepage-container[theme-mode="dark"] {
+    color: var(--semi-color-text-0);
+    background: var(--semi-color-bg-0);
+}
+
+.homepage-container[theme-mode="dark"] .hero {
+    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
+}
+
+.homepage-container[theme-mode="dark"] .mission {
+    background: var(--semi-color-bg-1);
+}
+
+.homepage-container[theme-mode="dark"] .mission-card,
+.homepage-container[theme-mode="dark"] .team-card {
+    background: var(--semi-color-bg-1);
+    border-color: var(--semi-color-border);
+}
+</style>
+
+<div class="homepage-container">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>关于 Kapon</h1>
+        <p>致力于构建最可信赖的AI基础设施，让原生AI能力触手可及</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="container">
+        <h2 class="section-title">我们的故事</h2>
+        <div class="about-content">
+            <p>
+                Kapon 诞生于对AI技术纯粹性的坚持与追求。在AI快速发展的时代，我们深知原生、稳定、可信赖的AI服务对企业创新的重要性。
+            </p>
+            <p>
+                我们相信，真正的AI价值来源于原汁原味的模型能力，而非经过层层包装的二次加工。因此，Kapon 致力于提供直连官方源头的AI服务，
+                确保每一次API调用都能获得最纯粹、最强大的AI能力。
+            </p>
+            <p>
+                从技术架构到服务理念，从产品设计到客户支持，我们始终坚持"真源直连，智启未来"的核心价值观，
+                为全球开发者和企业构建最值得信赖的AI基础设施。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission">
+    <div class="container">
+        <h2 class="section-title">使命与愿景</h2>
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon">🎯</div>
+                <h3>我们的使命</h3>
+                <p>让全球最先进的AI技术变得触手可及，为每一个创新者提供稳定、可靠、原生的AI能力，推动人工智能技术的普及与应用。</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">🌟</div>
+                <h3>我们的愿景</h3>
+                <p>成为全球领先的AI基础设施提供商，构建连接AI技术与实际应用的桥梁，让AI成为推动社会进步的强大动力。</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">💎</div>
+                <h3>我们的承诺</h3>
+                <p>坚持技术纯粹性，保证服务稳定性，维护数据安全性。让每一位用户都能享受到最优质的AI服务体验。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+    <div class="container">
+        <h2 class="section-title">核心团队</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">K</div>
+                <h3>技术团队</h3>
+                <div class="team-role">架构与研发</div>
+                <p>来自顶尖科技公司的资深工程师，在分布式系统、AI基础设施和云计算领域拥有丰富经验。</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">A</div>
+                <h3>产品团队</h3>
+                <div class="team-role">产品与设计</div>
+                <p>深度理解AI应用场景，专注于用户体验设计，致力于让复杂的AI技术变得简单易用。</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">P</div>
+                <h3>运营团队</h3>
+                <div class="team-role">运维与支持</div>
+                <p>7x24小时守护服务稳定性，为用户提供及时、专业的技术支持和解决方案。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values">
+    <div class="container">
+        <h2 class="section-title" style="color: white;">核心价值观</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🔒</div>
+                <h3>诚信为本</h3>
+                <p>坚持透明、诚实的服务理念，建立与用户之间的信任关系</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">⚡</div>
+                <h3>追求卓越</h3>
+                <p>不断优化技术架构，提升服务质量，为用户创造更大价值</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <h3>用户至上</h3>
+                <p>以用户需求为导向，持续改进产品和服务，超越用户期望</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🚀</div>
+                <h3>创新驱动</h3>
+                <p>拥抱新技术，勇于创新，推动AI技术的发展与应用</p>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+// 监听主题模式变化（适配 new-api 的主题系统）
+function initTheme() {
+    const isDark = document.body.getAttribute('theme-mode') === 'dark' ||
+                   localStorage.getItem('theme-mode') === 'dark';
+
+    const homepageContainer = document.querySelector('.homepage-container');
+    if (homepageContainer) {
+        if (isDark) {
+            homepageContainer.setAttribute('theme-mode', 'dark');
+        } else {
+            homepageContainer.removeAttribute('theme-mode');
+        }
+    }
+}
+
+// 监听主题变化
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'theme-mode') {
+            initTheme();
+        }
+    });
+});
+
+// 开始观察body的属性变化
+observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['theme-mode']
+});
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
+
+    // 添加页面加载动画
+    const cards = document.querySelectorAll('.mission-card, .team-card, .value-item');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+</script>
