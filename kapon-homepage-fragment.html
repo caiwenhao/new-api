@@ -461,29 +461,7 @@
     font-size: 1rem;
 }
 
-.use-case-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-}
 
-.use-case-tag {
-    background: linear-gradient(135deg, var(--semi-color-primary-light-default, #EBF4FF), var(--semi-color-primary-light-hover, #DBEAFE));
-    color: var(--semi-color-primary, #2563EB);
-    padding: 0.4rem 0.8rem;
-    border-radius: 16px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: 1px solid var(--semi-color-primary-light-active, #BFDBFE);
-    transition: all 0.3s ease;
-}
-
-.use-case-tag:hover {
-    background: var(--semi-color-primary, #2563EB);
-    color: var(--semi-color-white, #FFFFFF);
-    transform: translateY(-1px);
-}
 
 /* Responsive */
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -548,43 +526,7 @@
     }
 }
 
-/* 暗色主题适配 */
-.homepage-container[theme-mode="dark"] {
-    color: var(--semi-color-text-0);
-    background: var(--semi-color-bg-0);
-}
 
-.homepage-container[theme-mode="dark"] .hero {
-    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
-}
-
-.homepage-container[theme-mode="dark"] .section-title {
-    color: var(--semi-color-text-0);
-}
-
-.homepage-container[theme-mode="dark"] .feature-card,
-.homepage-container[theme-mode="dark"] .model-card,
-.homepage-container[theme-mode="dark"] .use-case-card,
-.homepage-container[theme-mode="dark"] .contact-card {
-    background: var(--semi-color-bg-1);
-    border-color: var(--semi-color-border);
-}
-
-.homepage-container[theme-mode="dark"] .stats {
-    background: var(--semi-color-bg-1);
-}
-
-.homepage-container[theme-mode="dark"] .models {
-    background: var(--semi-color-bg-0);
-}
-
-.homepage-container[theme-mode="dark"] .use-cases {
-    background: linear-gradient(135deg, var(--semi-color-bg-0) 0%, var(--semi-color-bg-1) 100%);
-}
-
-.homepage-container[theme-mode="dark"] .contact {
-    background: var(--semi-color-bg-0);
-}
 </style>
 
 <div class="homepage-container">
@@ -594,7 +536,7 @@
         <h1>真源直连，智启未来</h1>
         <p>原生大模型，零掺杂承诺，为企业构建可信赖的AI基础设施</p>
         <div class="hero-buttons">
-            <a href="#contact" class="cta-button">立即体验</a>
+            <a href="https://models.kapon.cloud/register" class="cta-button">立即体验</a>
             <a href="#features" class="secondary-button">了解更多</a>
         </div>
     </div>
@@ -725,61 +667,31 @@
                 <div class="use-case-icon">🤖</div>
                 <h3>智慧客服</h3>
                 <p>打造全天候智能服务体验，深度理解用户意图，提供精准解答，让每一次互动都成为品牌价值的延伸。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">智能交互</span>
-                    <span class="use-case-tag">品牌价值</span>
-                    <span class="use-case-tag">全时服务</span>
-                </div>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">✨</div>
                 <h3>创意引擎</h3>
                 <p>释放创作潜能，从营销文案到品牌故事，AI助力内容创作达到新高度，让每个字都充满感染力。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">创意营销</span>
-                    <span class="use-case-tag">品牌故事</span>
-                    <span class="use-case-tag">内容创新</span>
-                </div>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">🧠</div>
                 <h3>智识中枢</h3>
                 <p>构建企业智慧大脑，让知识流动起来，将分散的信息转化为决策智慧，赋能团队协作新境界。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">知识图谱</span>
-                    <span class="use-case-tag">智慧决策</span>
-                    <span class="use-case-tag">协作赋能</span>
-                </div>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">🎓</div>
                 <h3>智学伙伴</h3>
                 <p>重新定义学习体验，个性化教学路径，智能学习陪伴，让每个学习者都能找到属于自己的成长轨迹。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">个性教育</span>
-                    <span class="use-case-tag">智能陪伴</span>
-                    <span class="use-case-tag">成长轨迹</span>
-                </div>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">📊</div>
                 <h3>洞察先知</h3>
                 <p>透视数据背后的商业密码，将复杂信息转化为清晰洞察，让数据成为企业前进的明灯。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">商业洞察</span>
-                    <span class="use-case-tag">数据智慧</span>
-                    <span class="use-case-tag">战略指引</span>
-                </div>
             </div>
             <div class="use-case-card">
                 <div class="use-case-icon">🚀</div>
                 <h3>智商助手</h3>
                 <p>重塑购物体验，精准理解用户需求，智能推荐与个性化服务，让每次购买都成为愉悦的发现之旅。</p>
-                <div class="use-case-tags">
-                    <span class="use-case-tag">智能零售</span>
-                    <span class="use-case-tag">个性体验</span>
-                    <span class="use-case-tag">购物愉悦</span>
-                </div>
             </div>
         </div>
     </div>
@@ -831,42 +743,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 监听主题模式变化（适配 new-api 的主题系统）
-function initTheme() {
-    // 检查当前主题模式
-    const isDark = document.body.getAttribute('theme-mode') === 'dark' ||
-                   localStorage.getItem('theme-mode') === 'dark';
 
-    const homepageContainer = document.querySelector('.homepage-container');
-    if (homepageContainer) {
-        if (isDark) {
-            homepageContainer.setAttribute('theme-mode', 'dark');
-        } else {
-            homepageContainer.removeAttribute('theme-mode');
-        }
-    }
-}
-
-// 监听主题变化
-const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'theme-mode') {
-            initTheme();
-        }
-    });
-});
-
-// 开始观察body的属性变化
-observer.observe(document.body, {
-    attributes: true,
-    attributeFilter: ['theme-mode']
-});
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化主题
-    initTheme();
-
     // 添加页面加载动画
     const cards = document.querySelectorAll('.feature-card, .model-card, .pricing-card, .use-case-card');
     cards.forEach((card, index) => {
