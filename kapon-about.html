@@ -205,8 +205,7 @@
 /* Values Section */
 .values {
     padding: 4rem 0;
-    background: linear-gradient(135deg, var(--semi-color-text-0, #1F2937) 0%, var(--semi-color-text-1, #374151) 100%);
-    color: var(--semi-color-white, #FFFFFF);
+    background: var(--semi-color-bg-1, #F8FAFC);
 }
 
 .values-grid {
@@ -217,32 +216,108 @@
 }
 
 .value-item {
+    background: var(--semi-color-bg-0, #FFFFFF);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--semi-color-border, #E5E7EB);
     text-align: center;
-    padding: 2rem 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.value-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .value-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--semi-color-primary, #2563EB), var(--semi-color-success, #10B981));
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
     font-size: 1.5rem;
-    backdrop-filter: blur(10px);
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
 .value-item h3 {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--semi-color-text-0, #1F2937);
 }
 
 .value-item p {
-    opacity: 0.9;
+    color: var(--semi-color-text-1, #6B7280);
     line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 0;
+    background: var(--semi-color-bg-0, #FFFFFF);
+}
+
+.contact-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    color: var(--semi-color-text-1, #6B7280);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.qr-codes {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.qr-code-item {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.qr-code-item:hover {
+    transform: translateY(-5px);
+}
+
+.qr-code-item img {
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid var(--semi-color-border, #E5E7EB);
+}
+
+.qr-code-item img:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.qr-code-item h4 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--semi-color-text-0, #1F2937);
+}
+
+.qr-code-item p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--semi-color-text-2, #9CA3AF);
 }
 
 /* Footer */
@@ -258,11 +333,22 @@
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .mission-grid,
     .team-grid,
     .values-grid {
         grid-template-columns: 1fr;
+    }
+
+    .qr-codes {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-code-item img {
+        width: 140px;
+        height: 140px;
     }
 }
 
@@ -281,8 +367,21 @@
 }
 
 .homepage-container[theme-mode="dark"] .mission-card,
-.homepage-container[theme-mode="dark"] .team-card {
+.homepage-container[theme-mode="dark"] .team-card,
+.homepage-container[theme-mode="dark"] .value-item {
     background: var(--semi-color-bg-1);
+    border-color: var(--semi-color-border);
+}
+
+.homepage-container[theme-mode="dark"] .values {
+    background: var(--semi-color-bg-1);
+}
+
+.homepage-container[theme-mode="dark"] .contact {
+    background: var(--semi-color-bg-0);
+}
+
+.homepage-container[theme-mode="dark"] .qr-code-item img {
     border-color: var(--semi-color-border);
 }
 </style>
@@ -370,7 +469,7 @@
 <!-- Values Section -->
 <section class="values">
     <div class="container">
-        <h2 class="section-title" style="color: white;">核心价值观</h2>
+        <h2 class="section-title">核心价值观</h2>
         <div class="values-grid">
             <div class="value-item">
                 <div class="value-icon">🔒</div>
@@ -391,6 +490,31 @@
                 <div class="value-icon">🚀</div>
                 <h3>创新驱动</h3>
                 <p>拥抱新技术，勇于创新，推动AI技术的发展与应用</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+    <div class="container">
+        <h2 class="section-title">联系我们</h2>
+        <div class="contact-content">
+            <p>
+                欢迎关注我们的官方渠道，获取最新产品动态、技术分享和服务支持。
+                我们的团队随时为您提供专业的AI服务咨询。
+            </p>
+            <div class="qr-codes">
+                <div class="qr-code-item">
+                    <img src="https://kp-os.tos-cn-shanghai.volces.com/models/images/gzh.jpg" alt="公众号二维码" />
+                    <h4>微信公众号</h4>
+                    <p>获取最新资讯和技术分享</p>
+                </div>
+                <div class="qr-code-item">
+                    <img src="https://kp-os.tos-cn-shanghai.volces.com/models/images/qywx.png" alt="企业微信二维码" />
+                    <h4>企业微信</h4>
+                    <p>专业技术支持和商务咨询</p>
+                </div>
             </div>
         </div>
     </div>
@@ -433,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTheme();
 
     // 添加页面加载动画
-    const cards = document.querySelectorAll('.mission-card, .team-card, .value-item');
+    const cards = document.querySelectorAll('.mission-card, .team-card, .value-item, .qr-code-item');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
