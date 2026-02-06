@@ -104,6 +104,11 @@ func validateMultipartTaskRequest(c *gin.Context, info *RelayInfo, action string
 		req.Images = images
 	}
 
+	// 处理 input_reference 数组（支持多参考图）
+	if inputRefs := formData["input_reference"]; len(inputRefs) > 0 {
+		req.InputReference = inputRefs
+	}
+
 	for key, values := range formData {
 		if len(values) > 0 && !isKnownTaskField(key) {
 			if intVal, err := strconv.Atoi(values[0]); err == nil {
@@ -137,8 +142,8 @@ func ValidateMultipartDirect(c *gin.Context, info *RelayInfo) *dto.TaskError {
 	if seconds == 0 {
 		seconds = req.Duration
 	}
-	if req.InputReference != "" {
-		req.Images = []string{req.InputReference}
+	if len(req.InputReference) > 0 {
+		req.Images = req.InputReference
 	}
 
 	if strings.TrimSpace(req.Model) == "" {

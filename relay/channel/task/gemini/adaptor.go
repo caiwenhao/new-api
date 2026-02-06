@@ -41,6 +41,7 @@ type GeminiVideoGenerationConfig struct {
 // GeminiVideoRequest represents a single video generation instance
 type GeminiVideoRequest struct {
 	Prompt string `json:"prompt"`
+	Image  string `json:"image,omitempty"` // Base64 encoded image or image URL for image-to-video
 }
 
 // GeminiVideoPayload represents the complete video generation request payload
@@ -136,11 +137,32 @@ func (a *TaskAdaptor) BuildRequestBody(c *gin.Context, info *relaycommon.RelayIn
 		return nil, fmt.Errorf("unexpected task_request type")
 	}
 
+	// Collect all images from Images field and Image field
+	images := req.Images
+	if len(images) == 0 && req.Image != "" {
+		images = []string{req.Image}
+	}
+
+	// Build instances based on image count
+	var instances []GeminiVideoRequest
+	if len(images) > 0 {
+		// Multi-image: create one instance per image
+		for _, img := range images {
+			instances = append(instances, GeminiVideoRequest{
+				Prompt: req.Prompt,
+				Image:  img,
+			})
+		}
+	} else {
+		// Single image or text-only: single instance
+		instances = []GeminiVideoRequest{
+			{Prompt: req.Prompt},
+		}
+	}
+
 	// Create structured video generation request
 	body := GeminiVideoPayload{
-		Instances: []GeminiVideoRequest{
-			{Prompt: req.Prompt},
-		},
+		Instances:  instances,
 		Parameters: GeminiVideoGenerationConfig{},
 	}
 

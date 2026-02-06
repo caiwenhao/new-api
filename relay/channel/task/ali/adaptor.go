@@ -256,12 +256,15 @@ func (a *TaskAdaptor) convertToAliRequest(info *relaycommon.RelayInfo, req relay
 		Model: req.Model,
 		Input: AliVideoInput{
 			Prompt: req.Prompt,
-			ImgURL: req.InputReference,
 		},
 		Parameters: &AliVideoParameters{
-			PromptExtend: true, // 默认开启智能改写
+			PromptExtend: true,
 			Watermark:    false,
 		},
+	}
+	// 处理 InputReference（支持数组，取第一张）
+	if len(req.InputReference) > 0 {
+		aliReq.Input.ImgURL = req.InputReference[0]
 	}
 
 	// 处理分辨率映射
